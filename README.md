@@ -31,3 +31,5 @@ https://www.raspberrypi.org/
 https://www.adafruit.com/
 
 https://www.sparkfun.com/
+
+<br>Copyright (c) 2020 Hartwell Fong
