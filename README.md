@@ -22,9 +22,19 @@ A display, keyboard, mouse, and power supply for Raspberry Pi.
 
 Oculus Quest optional (tested Quest Update >16.0 and three.js r115).<br>
 
-## 1. Melexis Infrared thermometer MLX90614
+## 1. Melexis Non-contact Infrared Thermometer MLX90614
 
-<img src="images/1-pinout.png" width="350">
+There are two versions of MLX90614. One 3V and the other, 5V. The author uses a 3V version because Raspberry Pi GPIO are 3.3V logic levels and NOT 5V tolerant.<br>
+
+ALWAYS proper shutdown and power off Raspberry Pi before wiring sensors to GPIO.<br>
+
+One useful terminal command is "pinout".<br>
+
+Even more useful is the images on Raspberry Pi website:
+
+https://www.raspberrypi.org/documentation/usage/gpio/
+
+GPIO2 (Pin 3) is SDA and GPIO3 (Pin 5) is SCL. Pin 1 is 3.3V and Pin 9 is GND.<br>
 
 <img src="images/1-i2cdetect.png" width="480">
 
