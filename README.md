@@ -26,7 +26,7 @@ Oculus Quest optional (tested Quest Update >16.0 and three.js r115).<br>
 
 There are two versions of MLX90614: 3V and 5V. The author uses the 3V version because Raspberry Pi GPIO are 3.3V logic levels and NOT 5V tolerant.<br>
 
-ALWAYS proper shutdown and power off Raspberry Pi before wiring sensors to GPIO pins.<br>
+ALWAYS "sudo shutdown -h now", wait, and power off Raspberry Pi before wiring sensors to GPIO pins.<br>
 
 Use Raspberry Pi website to identify pins:
 
