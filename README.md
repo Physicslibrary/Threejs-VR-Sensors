@@ -24,13 +24,11 @@ Oculus Quest optional (tested Quest Update >16.0 and three.js r115).<br>
 
 ## 1. Melexis Non-contact Infrared Thermometer MLX90614
 
-There are two versions of MLX90614. One 3V and the other, 5V. The author uses a 3V version because Raspberry Pi GPIO are 3.3V logic levels and NOT 5V tolerant.<br>
+There are two versions of MLX90614: 3V and 5V. The author uses the 3V version because Raspberry Pi GPIO are 3.3V logic levels and NOT 5V tolerant.<br>
 
-ALWAYS proper shutdown and power off Raspberry Pi before wiring sensors to GPIO.<br>
+ALWAYS proper shutdown and power off Raspberry Pi before wiring sensors to GPIO pins.<br>
 
-One useful terminal command is "pinout".<br>
-
-Even more useful is the images on Raspberry Pi website:
+Use Raspberry Pi website to identify pins:
 
 https://www.raspberrypi.org/documentation/usage/gpio/
 
