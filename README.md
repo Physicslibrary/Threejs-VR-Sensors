@@ -4,19 +4,23 @@ A project to explore a way to interface different sensors into virtual reality w
 
 ## System Requirements
 
-The types of sensors interfaced to a Raspberry Pi is dependent on what the author have.<br>
+The types of sensors interfaced to a Raspberry Pi is dependent on what the author have. The project is more about examples of using I<sup>2</sup>C, SPI, and GPIO pins on a Raspberry Pi.<br>
 
 Raspberry Pi with wireless LAN (tested Raspberry Pi 3 Model B+, Model A+, Pi Zero W).<br>
 
-A display, keyboard, and mouse for Raspberry Pi.
+Raspbian Buster with desktop (tested February 2020, 1138 MB version) from:
 
-Oculus Quest recommended (6DoF headset/controllers).<br>
+[https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
 
-Oculus Browser (tested Quest Update >16.0 and three.js r115).<br>
+There are three versions of Raspbian Buster. No reason for choosing the 1138 MB version except it is half the size of the full version. The Lite version is Linux text-only terminals and is not recommended as most examples are shown with a GUI.
 
-# Melexis Infrared thermometer MLX90614
+A display, keyboard, mouse, and power supply for Raspberry Pi.
 
-# Lidar-Lite v2
+Oculus Quest optional (tested Quest Update >16.0 and three.js r115).<br>
+
+## 1. Melexis Infrared thermometer MLX90614
+
+## 2. Lidar-Lite v2
 
 ## References
 
