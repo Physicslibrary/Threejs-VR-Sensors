@@ -36,19 +36,21 @@ For Raspberry Pi 3 B+, GPIO2 (Pin 3) is SDA and GPIO3 (Pin 5) is SCL. Pin 1 is 3
 
 Use links in References for information on MLX90614 pinout. The MLX90164 from adafruit came with two 10k pull-up resistors for SDA and SCL.<br>
 
+With the MLX90614 correctly wired, power on the Raspberry Pi. In a Terminal, "sudo i2cdetect -y 1" and MLX90614 should appear at hex address 5a:
+
 <img src="images/1-i2cdetect.png" width="480">
 
+In Terminal, "pip install PyMLX90614". This also install smbus2-0.3.0 which will be used with the next sensor Lidar-Lite v2.
+
 <img src="images/1-PyMLX90614.png" width="600">
+
+Try "from smbus2 import SMBus" and few other commands in python to check things. Exit python with "quit()".
 
 ## 2. Lidar-Lite v2
 
 ## References
 
 Derek Molloy, Exploring Raspberry Pi, John Wiley & Sons (2016).
-
-https://pypi.org/project/PyMLX90614/
-
-https://pypi.org/project/smbus2/
 
 https://www.raspberrypi.org/
 
@@ -61,6 +63,10 @@ https://learn.sparkfun.com/tutorials/mlx90614-ir-thermometer-hookup-guide/all
 https://www.sparkfun.com/
 
 https://www.melexis.com/en/product/MLX90614/Digital-Plug-Play-Infrared-Thermometer-TO-Can
+
+https://pypi.org/project/PyMLX90614/
+
+https://pypi.org/project/smbus2/
 
 
 <br>Copyright (c) 2020 Hartwell Fong
