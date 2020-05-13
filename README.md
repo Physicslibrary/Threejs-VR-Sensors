@@ -44,7 +44,7 @@ In Terminal, "pip install PyMLX90614". This also install smbus2-0.3.0 which will
 
 <img src="images/1-PyMLX90614.png" width="600">
 
-Try "from smbus2 import SMBus" and few other commands in python to check things. Exit python with "quit()".
+Try "from smbus2 import SMBus" and few other commands in python to check things. The temperature is reading is in Celsius. For example, hand is 22.63degC and head is 31.49 degC.
 
 ## 2. Lidar-Lite v2
 
