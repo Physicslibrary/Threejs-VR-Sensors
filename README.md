@@ -46,11 +46,33 @@ With the MLX90614 correctly wired, power on the Raspberry Pi. In a Terminal, "su
 
 <img src="images/1-i2cdetect.png" width="480">
 
-In Terminal, "pip install PyMLX90614". This also install smbus2-0.3.0 which will be used with the next sensor Lidar-Lite v2.
+In Terminal, "pip install PyMLX90614". This also install smbus2-0.3.0 which can be used with the next sensor Lidar-Lite v2.
 
 <img src="images/1-PyMLX90614.png" width="600">
 
-Try "from smbus2 import SMBus" and few other commands in python to check things. The temperature is reading is in Celsius. For example, hand is ~22 degC and head is ~31 degC. Command sensor.get_object_2() gives -273.15 degC which is absolute zero Kelvin.
+Try "from smbus2 import SMBus" and few other methods in python to check things. The temperature is reading is in Celsius. For example, hand is ~22 degC and head is ~31 degC. Method sensor.get_object_2() gives -273.15 degC which is absolute zero Kelvin (calibration?).
+
+Here is a python code to output temperature at 10Hz for 60min (just for testing):
+
+<pre>
+#!/usr/bin/python
+
+from smbus2 import SMBus
+from mlx90614 import MLX90614
+import time
+from sys import stdout
+
+bus = SMBus(1)
+sensor = MLX90614(bus, address=0x5A)
+
+for x in range(1,36000):
+        print sensor.get_object_1()
+        stdout.flush()
+        time.sleep(0.1)
+        
+bus.close()
+</pre>
+
 
 ## 2. Lidar-Lite v2
 
