@@ -156,6 +156,13 @@ Measure temperature of an icepack.<br>
 
 <img src="images/1-chromium-icepack.jpg" width="480">
 
+Next, configure the Pi as a wireless access point:<br>
+
+https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md
+
+In the "Configuring the access point host software (hostapd)", make own NameOfNetwork and good passwork for wpa_passphrase.<br>
+
+
 ## 2. Lidar-Lite v2
 
 ## References
