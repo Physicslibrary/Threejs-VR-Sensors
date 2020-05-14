@@ -40,7 +40,7 @@ Here are two images of a wiring:<br>
 
 <img src="images/1-mlx90614_pins.jpg" width="512">
 
-<img src="images/1-MLX90614.jpg" width="512">
+<img src="images/1-mlx90614.jpg" width="512">
 
 With the MLX90614 correctly wired, power on the Raspberry Pi. In a Terminal, "sudo i2cdetect -y 1" and MLX90614 should appear at hex address 5a:
 
