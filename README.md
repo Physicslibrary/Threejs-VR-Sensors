@@ -34,7 +34,13 @@ https://www.raspberrypi.org/documentation/usage/gpio/
 
 For Raspberry Pi 3 B+, GPIO2 (Pin 3) is SDA and GPIO3 (Pin 5) is SCL. Pin 1 is 3.3V and Pin 9 is GND.<br>
 
-Use links in References for information on MLX90614 pinout. The MLX90164 from adafruit came with two 10k pull-up resistors for SDA and SCL.<br>
+Use links in References for information on MLX90614 pinout. The MLX90614 from adafruit came with two 10k pull-up resistors for SDA and SCL.<br>
+
+Here are two images of a wiring:<br>
+
+<img src="images/1-mlx90614_pins.jpg" width="512">
+
+<img src="images/1-MLX90614.jpg" width="512">
 
 With the MLX90614 correctly wired, power on the Raspberry Pi. In a Terminal, "sudo i2cdetect -y 1" and MLX90614 should appear at hex address 5a:
 
@@ -44,7 +50,7 @@ In Terminal, "pip install PyMLX90614". This also install smbus2-0.3.0 which will
 
 <img src="images/1-PyMLX90614.png" width="600">
 
-Try "from smbus2 import SMBus" and few other commands in python to check things. The temperature is reading is in Celsius. For example, hand is 22.63 degC and head is 31.49 degC.
+Try "from smbus2 import SMBus" and few other commands in python to check things. The temperature is reading is in Celsius. For example, hand is ~22 degC and head is ~31 degC. Command sensor.get_object_2() gives -273.15 degC which is absolute zero Kelvin.
 
 ## 2. Lidar-Lite v2
 
