@@ -160,7 +160,7 @@ Next, configure the Pi as a wireless access point:<br>
 
 https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md
 
-In the "Configuring the access point host software (hostapd)", make own NameOfNetwork and good passwork for wpa_passphrase.<br>
+In the "Configuring the access point host software (hostapd)", make own NameOfNetwork and good password for wpa_passphrase.<br>
 
 
 ## 2. Lidar-Lite v2
