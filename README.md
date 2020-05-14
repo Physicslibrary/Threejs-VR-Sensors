@@ -26,7 +26,7 @@ Oculus Quest optional (tested Quest Update >16.0 and three.js r115).<br>
 
 There are two versions of MLX90614: 3V and 5V. The 3V version is selected because Raspberry Pi GPIO are 3.3V logic levels and NOT 5V tolerant.<br>
 
-ALWAYS "sudo shutdown -h now", wait, and power off Raspberry Pi before wiring sensors to GPIO pins.<br>
+ALWAYS "sudo shutdown -h now", wait (eg. LED stop flashing, no hdmi signal), and power off Raspberry Pi before wiring sensors to GPIO pins.<br>
 
 Use Raspberry Pi website to identify pins:
 
@@ -34,7 +34,7 @@ https://www.raspberrypi.org/documentation/usage/gpio/
 
 For Raspberry Pi 3 B+, GPIO2 (Pin 3) is SDA and GPIO3 (Pin 5) is SCL. Pin 1 is 3.3V and Pin 9 is GND.<br>
 
-Use links in References for information on MLX90614 pinout. The MLX90614 from adafruit came with two 10k pull-up resistors for SDA and SCL.<br>
+Use links in References for information on MLX90614 pinout. A MLX90614 from adafruit comes with two 10k pull-up resistors for SDA and SCL.<br>
 
 Here are two images of a wiring:<br>
 
@@ -50,9 +50,9 @@ In Terminal, "pip install PyMLX90614". This also install smbus2-0.3.0 which can 
 
 <img src="images/1-PyMLX90614.png" width="600">
 
-Try "from smbus2 import SMBus" and few other methods in python to check things. The temperature is reading is in Celsius. For example, hand is ~22 degC and head is ~31 degC. Method sensor.get_object_2() gives -273.15 degC which is absolute zero Kelvin (calibration?).
+Try "from smbus2 import SMBus" and few other methods in python to check things. The temperature reading is in Celsius. For example, hand is ~22 degC and head is ~31 degC. Method "sensor.get_object_2()" gives -273.15 degC which is absolute zero Kelvin (calibration?).
 
-Here is a python code to output temperature at 10Hz for 60min (just for testing):
+Here is a python code to output temperature at 10Hz for 60min (for testing):
 
 <pre>
 #!/usr/bin/python
@@ -72,6 +72,82 @@ for x in range(1,36000):
         
 bus.close()
 </pre>
+
+Save the python script as heat.py.<br>
+
+To display the output of heat.py in Raspberry Pi Chromium, one way is using websocketd.<br>
+
+http://websocketd.com/
+
+There is a Linux ARM version for the Raspberry Pi in "Download".<br>
+
+Put websocketd in a directory with heat.py.<br>
+
+Using Terminal in that directory, type.<br>
+
+<pre>
+openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+</pre>
+
+Test this minimal HTML websocket client.
+
+```html
+
+<!-- this is a comment 
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>three.js Thermal Infrared</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>		
+	</head>
+	<body>
+
+<script>
+
+init();
+
+function init() {
+
+	var ws = new WebSocket('wss://127.0.0.1:8000');		// localhost testing
+//	var ws = new WebSocket('wss://192.168.4.1:8000');	// wireless testing
+
+	ws.onopen = function() {
+	console.log("websocket onopen");
+	};
+
+	ws.onclose = function() {
+	console.log("websocket onclose");
+	};
+
+// Read output from heat.py
+ 
+	ws.onmessage = function(event) {
+	console.log(event.data);
+	};
+
+}
+
+</script>				
+</body>
+</html>
+
+```
+
+In Terminal, type.<br>
+
+<pre>
+./websocket --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./heat.py
+</pre>
+
+In Chromium, enter ```https://127.0.0.1:8000``` and may get a warning "Your connection is not private". Proceed in "Advanced" as you are connecting to your own Raspberry Pi.<br>
+
 
 
 ## 2. Lidar-Lite v2
@@ -96,5 +172,6 @@ https://pypi.org/project/PyMLX90614/
 
 https://pypi.org/project/smbus2/
 
+https://github.com/joewalnes/websocketd
 
 <br>Copyright (c) 2020 Hartwell Fong
