@@ -83,7 +83,7 @@ There is a Linux ARM version for the Raspberry Pi in "Download".<br>
 
 Put websocketd in a directory with heat.py.<br>
 
-Using Terminal in that directory, type.<br>
+In a Terminal, cd to that directory and type.<br>
 
 <pre>
 openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
@@ -146,9 +146,15 @@ In Terminal, type.<br>
 ./websocket --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./heat.py
 </pre>
 
+<img src="images/1-websocketd.jpg" width="800">
+
 In Chromium, enter ```https://127.0.0.1:8000``` and may get a warning "Your connection is not private". Proceed in "Advanced" as you are connecting to your own Raspberry Pi.<br>
 
+<img src="images/1-chromium.jpg" width="480">
 
+Measure temperature of an icepack.<br>
+
+<img src="images/1-chromium-icepack.jpg" width="480">
 
 ## 2. Lidar-Lite v2
 
