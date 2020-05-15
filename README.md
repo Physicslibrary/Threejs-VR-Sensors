@@ -152,7 +152,7 @@ In Chromium, enter ```https://127.0.0.1:8000``` and may get a warning "Your conn
 
 <img src="images/1-chromium.jpg" width="480">
 
-Measure temperature of an icepack.<br>
+Measure temperature of an ice pack.<br>
 
 <img src="images/1-chromium-icepack.jpg" width="480">
 
