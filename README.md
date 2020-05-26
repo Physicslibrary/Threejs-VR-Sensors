@@ -158,8 +158,9 @@ Next, configure the Pi as a wireless access point:<br>
 
 https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md
 
-In the "Configuring the access point host software (hostapd)", make own NameOfNetwork and good password for wpa_passphrase.<br>
+In "Configure the access point software", make own NameOfNetwork and good password for wpa_passphrase. The author skips section "Enable routing and IP masquerading" to keep thing simple (so no internet access from Pi wireless LAN but apt-get work with ethernet). This is useful in developing and serving three.js from a Raspberry Pi with Oculus Quest wifi connected.<br>
 
+(updating)
 
 ## 2. Lidar-Lite v2
 
