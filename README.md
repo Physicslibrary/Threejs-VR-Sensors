@@ -38,7 +38,7 @@ Use links in References for information on MLX90614 pinout. A MLX90614 from adaf
 
 Here is an example of a wiring:<br>
 
-<img src="images/mlx90614-may-26-2020.jpg" width="400">
+<img src="images/mlx90614-may-26-2020.jpg" width="480">
 
 With the MLX90614 correctly wired, power on the Raspberry Pi. In a Terminal, "sudo i2cdetect -y 1" and MLX90614 should appear at hex address 5a:
 
