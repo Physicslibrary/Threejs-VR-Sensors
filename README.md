@@ -1,10 +1,10 @@
-# Threejs-VR-Sensors (under construction)
+# Threejs-VR-Sensors (updating)
 
-A project to explore interfacing sensors into virtual reality with a Raspberry Pi.
+A project to explore interfacing sensors into virtual reality with a Raspberry Pi.<br>
+
+This involves programming (C, python, javascript) I<sup>2</sup>C, SPI, and GPIO pins on a Raspberry Pi. Data read from sensors is sent to wifi-connected device (eg. Oculus Quest) using websocket.<br>
 
 ## System Requirements
-
-The types of sensors interfaced to a Raspberry Pi are dependent on what the author have. The project is more about examples of using I<sup>2</sup>C, SPI, and GPIO pins on a Raspberry Pi.<br>
 
 Raspberry Pi with wireless LAN (tested Raspberry Pi 3 Model B+, Model A+, Pi Zero W).<br>
 
@@ -20,7 +20,7 @@ After Raspbian is booted, select "Preferences/Raspberry Pi Configuration" and en
 
 A display, keyboard, mouse, and power supply for Raspberry Pi.
 
-Oculus Quest optional (tested Quest Update >16.0 and three.js r115).<br>
+Oculus Quest optional (tested Quest Update >17.0 and three.js r115).<br>
 
 ## 1. Melexis Non-contact Infrared Thermometer MLX90614
 
@@ -36,11 +36,9 @@ For Raspberry Pi 3 B+, GPIO2 (Pin 3) is SDA and GPIO3 (Pin 5) is SCL. Pin 1 is 3
 
 Use links in References for information on MLX90614 pinout. A MLX90614 from adafruit comes with two 10k pull-up resistors for SDA and SCL.<br>
 
-Here are two images of a wiring:<br>
+Here is an example of a wiring:<br>
 
 <img src="images/1-mlx90614_pins.jpg" width="512">
-
-<img src="images/1-mlx90614.jpg" width="512">
 
 With the MLX90614 correctly wired, power on the Raspberry Pi. In a Terminal, "sudo i2cdetect -y 1" and MLX90614 should appear at hex address 5a:
 
