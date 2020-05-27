@@ -2,17 +2,17 @@
 
 A project to explore interfacing sensors into virtual reality with a Raspberry Pi.<br>
 
-This involves programming (C, python, javascript) I<sup>2</sup>C, SPI, and GPIO pins on a Raspberry Pi. Data read from sensors is sent to wifi-connected device (eg. Oculus Quest) using websocket.<br>
+This involves programming (C, python, javascript) I<sup>2</sup>C, SPI, and GPIO pins on a Raspberry Pi. Data read from sensors are sent to wifi-connected devices (eg. Oculus Quest) using websocket.<br>
 
 ## System Requirements
 
-Raspberry Pi with wireless LAN (tested Raspberry Pi 3 Model B+, Model A+, Pi Zero W).<br>
+Raspberry Pi with wireless LAN (tested Raspberry Pi 3 Model B+, Pi 3 Model A+, Pi Zero W).<br>
 
 Raspbian Buster with desktop (tested February 2020, 1138 MB version) from:
 
 [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
 
-There are three versions of Raspbian Buster. The 1138 MB version is chosen because it is half the size of the full version and without extra softwares not used in writing three.js codes and interfacing sensors. The Lite version is Linux text-only terminals and is not recommended as examples are shown with GUI and text.
+There are three versions of Raspbian Buster. The 1138 MB version is chosen because it is half the size of the full version and without extra softwares not used in writing three.js codes and interfacing sensors. The Lite version is Linux text-only and is not recommended as examples are shown with GUI and text. However, Lite is excellent for a minimal low overhead headless Linux access point after testing on full version.
 
 After Raspbian is booted, select "Preferences/Raspberry Pi Configuration" and enable I<sup>2</sup>C and SPI.
 
@@ -44,7 +44,7 @@ With the MLX90614 correctly wired, power on the Raspberry Pi. In a Terminal, "su
 
 <img src="images/1-i2cdetect.png" width="480">
 
-In Terminal, "pip install PyMLX90614". This also install smbus2-0.3.0 which can be used with the next sensor Lidar-Lite v2.
+In Terminal, "pip install PyMLX90614". This also install smbus2-0.3.0 which is used with other I<sup>2</sup>C sensors.
 
 <img src="images/1-PyMLX90614.png" width="600">
 
@@ -87,7 +87,9 @@ In a Terminal, cd to that directory and type.<br>
 openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
 </pre>
 
-Test this minimal HTML websocket client.
+This generates two files key.pem and cert.pem in the current directory.<br>
+
+Test this minimal HTML websocket client.<br>
 
 ```html
 
@@ -154,7 +156,7 @@ Measure temperature of an ice pack at ~ -10 degC.<br>
 
 <img src="images/1-chromium-icepack.jpg" width="480">
 
-Next, configure the Pi as a wireless access point:<br>
+With python heat.py and websocketd working, configure the Pi as a wireless access point for connecting wifi devices like Oculus Quest:<br>
 
 https://www.raspberrypi.org/documentation/configuration/wireless/access-point-routed.md
 
@@ -162,7 +164,20 @@ In "Configure the access point software", make own NameOfNetwork and good passwo
 
 (updating)
 
-## 2. Lidar-Lite v2
+## 2. Pimoroni VL53L1X
+
+<img src="images/2-pimoroni-vl53l1x.jpg" width="400">
+
+<img src="images/2-i2cdetect.jpg" width="480">
+
+<img src="images/2-distancepy.jpg" width="400">
+
+Run "python distance.py" from examples in https://github.com/pimoroni/vl53l1x-python. The above shows an object moving at discrete distances from the sensor.<br>
+
+## 3.
+
+## 4. Lidar-Lite v2
+
 
 ## References
 
@@ -172,11 +187,7 @@ https://www.raspberrypi.org/
 
 https://learn.adafruit.com/using-melexis-mlx90614-non-contact-sensors/wiring-and-test
 
-https://www.adafruit.com/
-
 https://learn.sparkfun.com/tutorials/mlx90614-ir-thermometer-hookup-guide/all
-
-https://www.sparkfun.com/
 
 https://www.melexis.com/en/product/MLX90614/Digital-Plug-Play-Infrared-Thermometer-TO-Can
 
@@ -185,5 +196,9 @@ https://pypi.org/project/PyMLX90614/
 https://pypi.org/project/smbus2/
 
 https://github.com/joewalnes/websocketd
+
+https://shop.pimoroni.com/products/vl53l1x-breakout
+
+https://github.com/pimoroni/vl53l1x-python
 
 <br>Copyright (c) 2020 Hartwell Fong
