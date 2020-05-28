@@ -176,7 +176,7 @@ Put threejs_vr_mlx90614_handheld_plot.html in "examples" folder. Uncomment "var 
 
 With Oculus Quest connected to the Pi and websocketd running heat.py, open Oculus Browser to ```https://192.168.4.1:8000```. Find threejs_vr_mlx90614_handheld_plot.html and "Enter VR".<br>
 
-<img src="images/mlx90614-handheld-plot.jpg" width="480">
+<img src="images/mlx90614-handheld-plot-2.jpg" width="480">
 
 Above is a temperature plot attached to right Touch controller. The oscillating wave is an ice pack moving back and forth in front of the MLX90614.<br>
 
