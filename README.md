@@ -162,7 +162,23 @@ https://www.raspberrypi.org/documentation/configuration/wireless/access-point-ro
 
 In "Configure the access point software", make own NameOfNetwork and good password for wpa_passphrase. The author skips section "Enable routing and IP masquerading" to keep thing simple (so no internet access from Pi wireless LAN but apt-get work with ethernet). This is useful in developing and serving three.js from a Raspberry Pi with Oculus Quest wifi connected.<br>
 
-(updating)
+All codes in Threejs-VR-Physics are developed on a Raspberry Pi 3 Model B+ and tested with Oculus Quest. Use section "Making Threejs-WebXR-67P" to install (or skip) three.js on Raspberry Pi:<br>
+
+https://github.com/Physicslibrary/Threejs-WebXR-67P
+
+However, three.js installation is a ~250MB download. An easier way is make "build/three.module.js." and "examples/jsm/VRButton*" from:<br>
+
+https://github.com/Physicslibrary/Threejs-VR-Physics
+
+Put them in the same directory for the earlier "heat_websocket.html". These are minimal three.js files for VR.<br>
+
+Put threejs_vr_mlx90614_handheld_plot.html in "examples" folder. Uncomment "var ws = new WebSocket('wss://192.168.4.1:8000');".<br>
+
+With Oculus Quest connected to the Pi and websocketd running heat.py, open Oculus Browser to ```https://192.168.4.1:8000```. Find threejs_vr_mlx90614_handheld_plot.html and "Enter VR".<br>
+
+<img src="images/mlx90614-handheld-plot.jpg" width="480">
+
+Above is a temperature plot attached to right Touch controller. The oscillating wave is an ice pack moving back and forth in front of the MLX90614.<br>
 
 ## 2. Pimoroni VL53L1X
 
