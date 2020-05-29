@@ -50,7 +50,7 @@ In Terminal, "pip install PyMLX90614". This also install smbus2-0.3.0 which is u
 
 Try "from smbus2 import SMBus" and few other methods in python to check things. The temperature reading is in Celsius. For example, hand is ~22 degC and head is ~31 degC. Method "sensor.get_object_2()" gives -273.15 degC which is absolute zero Kelvin (calibration?).
 
-Here is a python code to output temperature at 10Hz for 60min (for testing):
+Here is a python code to output temperature at 10Hz for 5min (for testing):
 
 <pre>
 #!/usr/bin/python
@@ -63,7 +63,7 @@ from sys import stdout
 bus = SMBus(1)
 sensor = MLX90614(bus, address=0x5A)
 
-for x in range(1,36000):
+for x in range(1,3000):
         print sensor.get_object_1()
         stdout.flush()
         time.sleep(0.1)
@@ -166,11 +166,11 @@ All codes in Threejs-VR-Physics are developed on a Raspberry Pi 3 Model B+ and t
 
 https://github.com/Physicslibrary/Threejs-WebXR-67P
 
-However, three.js installation is a ~250MB download. An easier way is make "build/three.module.js." and "examples/jsm/VRButton*" from:<br>
+However, three.js installation is a ~250MB download. An easier way is to use "build/three.module.js.", "examples/jsm/VRButton.js", "examples/jsm/VRButton.d.ts" from:<br>
 
 https://github.com/Physicslibrary/Threejs-VR-Physics
 
-Put them in the same directory for the earlier "heat_websocket.html". These are minimal three.js files for VR.<br>
+These are minimal three.js files for VR. Create the same file structures and put them in the same directory as earlier "heat_websocket.html".<br>
 
 Put threejs_vr_mlx90614_handheld_plot.html in "examples" folder. Uncomment "var ws = new WebSocket('wss://192.168.4.1:8000');".<br>
 
