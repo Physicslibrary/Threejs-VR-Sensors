@@ -93,7 +93,7 @@ Test this minimal HTML websocket client.<br>
 
 ```html
 
-<!-- this is a comment 
+<!-- a comment 
 
 -->
 
@@ -179,6 +179,8 @@ With Oculus Quest connected to the Pi and websocketd running heat.py, open Oculu
 <img src="images/mlx90614-handheld-plot-2.jpg" width="480">
 
 Above is a temperature plot attached to right Touch controller. The oscillating wave is an ice pack moving back and forth in front of the MLX90614.<br>
+
+(note - temperature plot will stop after 5 min because heat.py run at 10Hz for 3000 samples, refresh threejs_vr_mlx90614_handheld_plot.html to restart)<br>
 
 ## 2. Pimoroni VL53L1X
 
