@@ -172,7 +172,7 @@ https://github.com/Physicslibrary/Threejs-VR-Physics
 
 These are minimal three.js files for VR. Create the same file structures and put them in the same directory as earlier "heat_websocket.html".<br>
 
-Put threejs_vr_mlx90614_handheld_plot.html in "examples" folder. Uncomment "var ws = new WebSocket('wss://192.168.4.1:8000');".<br>
+Put threejs_vr_mlx90614_handheld_plot.html in "examples" folder. Comment out "var ws\*127.0.0.1\*" and uncomment "var ws = new WebSocket('wss://192.168.4.1:8000');".<br>
 
 With Oculus Quest connected to the Pi and websocketd running heat.py, open Oculus Browser to ```https://192.168.4.1:8000```. Find threejs_vr_mlx90614_handheld_plot.html and "Enter VR".<br>
 
