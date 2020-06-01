@@ -143,7 +143,7 @@ function init() {
 In Terminal, type.<br>
 
 <pre>
-./websocket --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./heat.py
+./websocketd --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./heat.py
 </pre>
 
 <img src="images/1-websocketd.jpg" width="800">
@@ -190,11 +190,74 @@ Above is a temperature plot attached to right Touch controller. The oscillating 
 
 <img src="images/2-distancepy.jpg" width="400">
 
-Run "python distance.py" from examples in https://github.com/pimoroni/vl53l1x-python. The above shows an object moving at discrete distances from the sensor.<br>
+Run "python distance.py" from examples (May 27, 2020) in https://github.com/pimoroni/vl53l1x-python. The above shows an object moving at discrete distances from the sensor.<br>
+
+Modify distance.py to this example (vl53l1x.py) to output data in meters:
+
+<pre>
+#!/usr/bin/env python
+
+import time
+import sys
+import signal
+import VL53L1X
+
+tof = VL53L1X.VL53L1X(i2c_bus=1, i2c_address=0x29)
+tof.open()
+
+tof.set_timing(66000, 70)
+
+tof.start_ranging(1)
+
+running = True
+
+def exit_handler(signal, frame):
+    global running
+    running = False
+    tof.stop_ranging()
+    print()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, exit_handler)
+
+while running:
+	distance_in_mm = tof.get_distance()
+	print(distance_in_mm / 1000.0)	# mm to m
+	sys.stdout.flush()
+</pre>
+
+Method "tof.open()" outputs eight lines of information about sensor. Pipe the output of vl53l1x.py to this python script (filter.py) to remove those lines and output distance "./vl53l1x.py | ./filter.py":
+
+<pre>
+#!/usr/bin/python
+
+import sys
+
+for i in range(10):	# ignore first ten lines
+	sys.stdin.readline()
+
+while True:
+	sys.stdout.write(sys.stdin.readline())
+	sys.stdout.flush()
+</pre>
+
+Make the two python scripts one command (eg. vl53l1x.sh) for websocketd:
+
+<pre>
+#!/bin/bash
+./vl53l1x.py | ./filter.py
+</pre>
+
+Same for MLX90614, run websocketd, and point Oculus Browser to threejs_vr_vl53l1x_handheld_plot.html.
+
+<pre>
+./websocketd --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./vl53l1x.sh
+</pre>
+
 
 ## 3.
 
-## 4. Lidar-Lite v2
+## 4. Lidar-Lite 2
 
 
 ## References
