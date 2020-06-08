@@ -22,7 +22,7 @@ A display, keyboard, mouse, and power supply for Raspberry Pi.
 
 Oculus Quest optional (tested Quest Update >17.0 and three.js r115).<br>
 
-## 1. Melexis Non-contact Infrared Thermometer MLX90614
+## 1. Melexis MLX90614 Non-contact Infrared Thermometer
 
 There are two versions of MLX90614: 3V and 5V. The 3V version is selected because Raspberry Pi GPIO are 3.3V logic levels and NOT 5V tolerant.<br>
 
@@ -180,9 +180,9 @@ With Oculus Quest connected to the Pi and websocketd running heat.py, open Oculu
 
 Above is a temperature plot attached to right Touch controller. The oscillating wave is an ice pack moving back and forth in front of the MLX90614.<br>
 
-(note - temperature plot will stop after 5 min because heat.py run at 10Hz for 3000 samples, refresh threejs_vr_mlx90614_handheld_plot.html to restart)<br>
+(plot stops after 5 min because heat.py run at 10Hz for 3000 samples, refresh threejs_vr_mlx90614_handheld_plot.html to restart)<br>
 
-## 2. Pimoroni VL53L1X
+## 2. Pimoroni VL53L1X Time-of-Flight Sensor
 
 <img src="images/2-pimoroni-vl53l1x.jpg" width="400">
 
@@ -226,7 +226,13 @@ while running:
 	sys.stdout.flush()
 </pre>
 
-Method "tof.open()" outputs eight lines of information about sensor. Pipe the output of vl53l1x.py to this python script (filter.py) to remove those lines and output distance "./vl53l1x.py | ./filter.py":
+(June 8, 2020)<br>
+Look like filter.py is not necessary as the data is not buffered. It may be that by the time websocketd is running with a python script, the eight lines of string would have passed and parseFloat(event.data) in websocket client threejs_vr_vl53l1x_handheld_plot.html is converting strings to floating-points.<br>
+
+Archived:<br>
+{
+
+Method "tof.open()" outputs eight lines of information about sensor. Pipe the output of vl53l1x.py to this python script (filter.py) to remove those lines and output distance (eg. ./vl53l1x.py | ./filter.py):
 
 <pre>
 #!/usr/bin/python
@@ -248,10 +254,13 @@ Make the two python scripts one command (eg. vl53l1x.sh) for websocketd:
 ./vl53l1x.py | ./filter.py
 </pre>
 
+}
+
+
 Same for MLX90614, run websocketd, and point Oculus Browser to threejs_vr_vl53l1x_handheld_plot.html.
 
 <pre>
-./websocketd --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./vl53l1x.sh
+./websocketd --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./vl53l1x.py
 </pre>
 
 
