@@ -257,7 +257,7 @@ Make the two python scripts one command (eg. vl53l1x.sh) for websocketd:
 }
 
 
-Same for MLX90614, run websocketd, and point Oculus Browser to threejs_vr_vl53l1x_handheld_plot.html.
+Same for MLX90614, run websocketd, and Oculus Browser to threejs_vr_vl53l1x_handheld_plot.html.
 
 <pre>
 ./websocketd --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./vl53l1x.py
