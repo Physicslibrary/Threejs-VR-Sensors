@@ -180,7 +180,7 @@ With Oculus Quest connected to the Pi and websocketd running heat.py, open Oculu
 
 Above is a temperature plot attached to right Touch controller. The oscillating wave is an ice pack moving back and forth in front of the MLX90614.<br>
 
-(plot stops after 5 min because heat.py run at 10Hz for 3000 samples, refresh threejs_vr_mlx90614_handheld_plot.html to restart)<br>
+(Plot stops after 5 min because heat.py run at 10Hz for 3000 samples, refresh threejs_vr_mlx90614_handheld_plot.html to restart)<br>
 
 ## 2. Pimoroni VL53L1X Time-of-Flight Sensor
 
@@ -227,7 +227,7 @@ while running:
 </pre>
 
 (June 8, 2020)<br>
-Look like filter.py is not necessary as the data is not buffered. It may be that by the time websocketd is running with a python script, the eight lines of string would have passed and parseFloat(event.data) in websocket client threejs_vr_vl53l1x_handheld_plot.html is converting strings to floating-points.<br>
+Look like filter.py is not necessary as data is not buffered. It may be that after websocketd is running with a python script, the eight lines of string have passed and parseFloat(event.data) in websocket client threejs_vr_vl53l1x_handheld_plot.html is converting strings to floating-points.<br>
 
 Archived:<br>
 {
@@ -247,7 +247,7 @@ while True:
 	sys.stdout.flush()
 </pre>
 
-Make the two python scripts one command (eg. vl53l1x.sh) for websocketd:
+Make two python scripts to one (eg. vl53l1x.sh) for websocketd:
 
 <pre>
 #!/bin/bash
@@ -257,17 +257,17 @@ Make the two python scripts one command (eg. vl53l1x.sh) for websocketd:
 }
 
 
-Same for MLX90614, run websocketd, and Oculus Browser to threejs_vr_vl53l1x_handheld_plot.html.
+Same as for MLX90614, run websocketd, and Oculus Browser to threejs_vr_vl53l1x_handheld_plot.html.
 
 <pre>
 ./websocketd --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./vl53l1x.py
 </pre>
 
+<img src="images/2-vl53l1x-handheld-plot.jpg" width="480">
+
+Above is a distance plot attached to right Touch controller. The linear increasing curve is an object moving away in front of the VL53L1X from 0m to 1m (about half of y-axis) to maximum of 3m (background).<br>
 
 ## 3.
-
-## 4. Lidar-Lite 2
-
 
 ## References
 
