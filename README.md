@@ -1,8 +1,8 @@
-# Threejs-VR-Sensors (updating)
+# Threejs-VR-Sensors
 
 A project to explore interfacing sensors into virtual reality with a Raspberry Pi.<br>
 
-This involves programming (C, python, javascript) I<sup>2</sup>C, SPI, and GPIO pins on a Raspberry Pi. Data read from sensors are sent to wifi-connected devices (eg. Oculus Quest) using websocket.<br>
+This involves programming (python, javascript) I<sup>2</sup>C pins on a Raspberry Pi. Data read from sensors are sent to wifi-connected devices (eg. Oculus Quest) using websocket.<br>
 
 ## System Requirements
 
@@ -14,7 +14,7 @@ Raspbian Buster with desktop (tested February 2020, 1138 MB version) from:
 
 There are three versions of Raspbian Buster. The 1138 MB version is chosen because it is half the size of the full version and without extra softwares not used in writing three.js codes and interfacing sensors. The Lite version is Linux text-only and is not recommended as examples are shown with GUI and text. However, Lite is excellent for a minimal low overhead headless Linux access point after testing on full version.
 
-After Raspbian is booted, select "Preferences/Raspberry Pi Configuration" and enable I<sup>2</sup>C and SPI.
+After Raspbian is booted, select "Preferences/Raspberry Pi Configuration" and enable I<sup>2</sup>C and SPI. (So far, the sensors are I<sup>2</sup>C. Sensors with SPI could be used in future projects.)
 
 <img src="images/1-pi-config.png" width="512">
 
