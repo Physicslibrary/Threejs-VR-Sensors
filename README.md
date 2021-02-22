@@ -142,7 +142,7 @@ function init() {
 In Terminal, type.<br>
 
 <pre>
-./websocketd --port=8000 --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./heat.py
+./websocketd --port=8000 --ssl --sslkey=key.pem --sslcert=cert.pem --staticdir=. ./heat.py
 </pre>
 
 <img src="images/1-websocketd.jpg" width="800">
